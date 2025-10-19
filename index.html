@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wear-ther App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">wear-ther app</p>
+            <p class="subtitle">what to wear ưhen knowing the ther</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container block">
+            <form id="wt-form" class="box">
+                <nav class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <div class="field">
+                                <p class="control">
+                                    <input name="f-date" id="f-date" type="datetime-local" class="input" disabled />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <div class="field has-addons">
+                                <p class="control"><a class="button is-static">Forecast</a></p>
+                                <p class="control">
+                                    <span class="select">
+                                        <select name="f-days" id="f-days" required>
+                                            <option selected>3</option>
+                                            <option>7</option>
+                                        </select>
+                                    </span>
+                                </p>
+                                <p class="control"><a class="button is-static">days</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-right">
+                        <div class="level-item">
+                            <div class="field has-addons">
+                                <p class="control"><a class="button is-static">Lati</a></p>
+                                <p class="control"><input name="f-lati" id="f-lati" type="number" class="input"
+                                        placeholder="21.0368973" step=".0000001" required />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <div class="field has-addons">
+                                <p class="control"><a class="button is-static">Long</a></p>
+                                <p class="control"><input name="f-long" id="f-long" type="number" class="input"
+                                        placeholder="105.8320918" step=".0000001" required />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <button class="button" id="f-loca">Current location</button>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+        </div>
+
+        <div class="container block">
+            <div class="columns">
+                <div class="column" id="wt-current-1">
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-temperature-low"></i></span>
+                        <span id="wt-temperature_2m">0</span>
+                        (<span id="wt-apparent_temperature">0</span>)
+                    </div>
+
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-wind"></i></span>
+                        <span id="wt-wind_speed_10m">0</span>
+                        (<span id="wt-wind_direction_10m"><i class="fas fa-arrow-up"></i></span>)
+                    </div>
+
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-water"></i></span>
+                        <span id="wt-relative_humidity_2m">0</span>
+                    </div>
+
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-cloud-showers-heavy"></i></span>
+                        <span id="wt-precipitation_probability">0</span> (<span id="wt-precipitation">0</span>)
+                    </div>
+
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-cloud"></i></span>
+                        <span id="wt-cloud_cover">0</span>
+                    </div>
+
+                    <div class="icon-text">
+                        <span class="icon"><i class="fas fa-sun"></i></span>
+                        <span id="wt-uv_index">0</span>
+                    </div>
+                </div>
+
+                <div class="column">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container block">
+            <div class="table-container">
+                <table class="table">
+                    <tbody id="wt-forecast">
+                        <tr>
+                            <td>
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title"><time datetime="2025-10-19 00:00">2025-10-19
+                                                00:00</time></p>
+                                    </header>
+                                    <div class="card-content">
+                                        <div class="content">
+                                            <div class="icon-text">
+                                                <span class="icon"><i class="fas fa-temperature-low"></i></span>
+                                                <span id="wt-temperature_2m">0</span>
+                                            </div>
+                                            <div class="icon-text">
+                                                <span class="icon"><i class="fas fa-cloud-showers-heavy"></i></span>
+                                                <span id="wt-precipitation_probability">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </div>
+        </div>
+    </section>
+
+    <script src="./api.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
